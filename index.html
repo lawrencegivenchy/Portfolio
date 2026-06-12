@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lawrence T Makhafola | Junior Data Analyst</title>
-  <meta property="og:title" content="Lawrence T Makhafola | Junior Data Analyst" />
+<meta property="og:title" content="Lawrence T Makhafola | Junior Data Analyst" />
 <meta property="og:description" content="Junior Data Analyst based in Pretoria, South Africa. Specialising in SQL, Power BI, and Excel. View my portfolio and get in touch." />
 <meta property="og:url" content="https://lawrence-makhafola.vercel.app" />
 <meta property="og:image" content="https://lawrence-makhafola.vercel.app/MyDataPic.jpeg" />
 <meta property="og:type" content="website" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* --- ALL CSS REMAINS EXACTLY THE SAME --- */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg: #0a0a0f;
@@ -161,6 +160,7 @@
     transition: border-color 0.3s, transform 0.2s;
   }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -188,6 +188,7 @@
     margin-bottom: 0.4rem;
   }
   .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+  
   .hero-photo-wrap {
     position: relative;
     width: 260px;
@@ -221,20 +222,6 @@
     border-radius: 50%;
     border: 0.5px solid rgba(200,169,110,0.06);
     pointer-events: none;
-  }
-  .bg-decor::before {
-    content: '';
-    position: absolute;
-    inset: 60px;
-    border-radius: 50%;
-    border: 0.5px solid rgba(200,169,110,0.08);
-  }
-  .bg-decor::after {
-    content: '';
-    position: absolute;
-    inset: 120px;
-    border-radius: 50%;
-    border: 0.5px solid rgba(200,169,110,0.05);
   }
   section { padding: 6rem 4rem; }
   .section-inner { max-width: 1200px; margin: 0 auto; }
@@ -273,9 +260,10 @@
   }
   .about-text p strong { color: var(--text); font-weight: 500; }
   #skills { background: var(--bg); }
+  
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
   .skill-group {
@@ -318,7 +306,34 @@
     color: var(--accent);
     border: 0.5px solid rgba(200,169,110,0.2);
   }
+  
   #projects { background: var(--bg2); }
+  
+  /* --- Interactive Filter Layout Styles --- */
+  .filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: transparent;
+    color: var(--muted);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    padding: 0.5rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,169,110,0.05);
+  }
+  
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -329,9 +344,16 @@
     border: 0.5px solid var(--border);
     padding: 2rem;
     position: relative;
-    transition: border-color 0.3s, transform 0.3s;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
+    opacity: 1;
+    transform: scale(1);
+  }
+  .project-card.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
   }
   .project-card:hover {
     border-color: rgba(200,169,110,0.5);
@@ -367,7 +389,7 @@
     gap: 1rem;
     margin: 1.25rem 0;
   }
-  .project-row-item { }
+  .project-row-text { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
   .project-row-label {
     font-size: 0.65rem;
     letter-spacing: 0.15em;
@@ -375,7 +397,6 @@
     color: var(--accent);
     margin-bottom: 0.3rem;
   }
-  .project-row-text { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
   .project-tools {
     display: flex;
     flex-wrap: wrap;
@@ -404,6 +425,7 @@
     transition: gap 0.2s;
   }
   .project-link:hover { gap: 0.7rem; }
+  
   #education { background: var(--bg); }
   .edu-list { display: flex; flex-direction: column; gap: 1px; }
   .edu-item {
@@ -477,9 +499,10 @@
   .delay-2 { animation-delay: 0.25s; opacity: 0; }
   .delay-3 { animation-delay: 0.4s; opacity: 0; }
   .delay-4 { animation-delay: 0.55s; opacity: 0; }
+  
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
+    .nav-links { display: none; } /* Kept simple clean mobile profile style */
     section { padding: 4rem 1.5rem; }
     #home { padding: 6rem 1.5rem 4rem; }
     .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -495,7 +518,6 @@
 </head>
 <body>
  
-<!-- NAV -->
 <nav>
   <div class="nav-logo">LTM</div>
   <ul class="nav-links">
@@ -508,7 +530,6 @@
   </ul>
 </nav>
  
-<!-- HERO -->
 <section id="home">
   <div class="bg-decor"></div>
   <div class="hero-grid">
@@ -532,28 +553,28 @@
         </a>
       </div>
     </div>
+    
     <div class="hero-stats fade-up delay-3">
-     <div class="stat-card">
-  <div class="stat-num">4</div>
-  <div class="stat-label">Portfolio Projects</div>
-</div>
-<div class="stat-card">
-  <div class="stat-num">30M+</div>
-  <div class="stat-label">Revenue Analysed</div>
-</div>
-<div class="stat-card">
-  <div class="stat-num">SQL</div>
-  <div class="stat-label">Databricks Certified</div>
-</div>
-<div class="stat-card">
-  <div class="stat-num">Power BI</div>
-  <div class="stat-label">Interactive Dashboards</div>
-</div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="4">0</div>
+        <div class="stat-label">Portfolio Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="32">0</div>
+        <div class="stat-label">Million Revenue Analysed (ZAR)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="15">0</div>
+        <div class="stat-label">SQL Views Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-label">% Interactive Dashboards</div>
+      </div>
     </div>
   </div>
 </section>
  
-<!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
     <div class="section-label">About Me</div>
@@ -569,9 +590,9 @@
       <div>
         <div class="skill-group" style="margin-bottom: 1.5rem;">
           <div class="skill-group-title">Currently Building</div>
-        <div class="skill-item"><span class="skill-dot"></span> Walmart Retail Performance Analysis <span class="skill-badge">Complete</span></div>
-        <div class="skill-item"><span class="skill-dot"></span> E-Commerce Sales Funnel Analysis <span class="skill-badge">Complete</span></div>
-        <div class="skill-item"><span class="skill-dot"></span> Python Sales Analytics Project <span class="skill-badge">In Progress</span></div>
+          <div class="skill-item"><span class="skill-dot"></span> Walmart Retail Performance Analysis <span class="skill-badge">Complete</span></div>
+          <div class="skill-item"><span class="skill-dot"></span> E-Commerce Sales Funnel Analysis <span class="skill-badge">Complete</span></div>
+          <div class="skill-item"><span class="skill-dot"></span> Python Sales Analytics Project <span class="skill-badge">In Progress</span></div>
         </div>
         <div class="skill-group">
           <div class="skill-group-title">Open To</div>
@@ -584,7 +605,6 @@
   </div>
 </section>
  
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-label">Technical Skills</div>
@@ -616,170 +636,142 @@
         <div class="skill-item"><span class="skill-dot"></span> GitHub & README Documentation <span class="skill-badge">Active</span></div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Analytics & AI Tools</div>
+        <div class="skill-group-title">Analytics & Strategic Context</div>
         <div class="skill-item"><span class="skill-dot"></span> KPI Development & Trend Analysis</div>
         <div class="skill-item"><span class="skill-dot"></span> Customer Segmentation</div>
         <div class="skill-item"><span class="skill-dot"></span> Revenue & Profitability Analysis</div>
         <div class="skill-item"><span class="skill-dot"></span> Inventory & Stockout Analysis</div>
-        <div class="skill-item"><span class="skill-dot"></span> AI-Assisted Analytics (Claude, ChatGPT) <span class="skill-badge">Active</span></div>
+        <div class="skill-item"><span class="skill-dot"></span> AI-Assisted Analytics (Claude, Gemini) <span class="skill-badge">Active</span></div>
       </div>
     </div>
   </div>
 </section>
  
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-label">Portfolio Projects</div>
     <div class="divider"></div>
+    
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+      <button class="filter-btn" onclick="filterProjects('powerbi')">Power BI</button>
+      <button class="filter-btn" onclick="filterProjects('sql')">Databricks SQL</button>
+      <button class="filter-btn" onclick="filterProjects('excel')">Excel</button>
+    </div>
+
     <div class="projects-grid">
 
-   <!-- Project 1 -->
-<div class="project-card">
-  <div class="project-num">01</div>
-  <div class="project-tag">
-   Excel · Databricks SQL · Power BI · DAX
-  </div>
-  <div class="project-title">
-    Walmart Retail Performance Analysis
-  </div>
-  <div class="project-row">
-    <div class="project-row-item">
-      <div class="project-row-label">Problem</div>
-      <div class="project-row-text">
-        Retail managers needed visibility into sales performance,
-        customer behaviour, loyalty programmes, promotions,
-        and inventory risks across multiple stores.
+      <div class="project-card" data-tech="powerbi sql excel">
+        <div class="project-num">01</div>
+        <div class="project-tag">Excel · Databricks SQL · Power BI · DAX</div>
+        <div class="project-title">Walmart Retail Performance Analysis</div>
+        <div class="project-row">
+          <div class="project-row-item">
+            <div class="project-row-label">Problem</div>
+            <div class="project-row-text">Retail managers needed visibility into sales performance, loyalty programmes, and inventory risks across stores.</div>
+          </div>
+          <div class="project-row-item">
+            <div class="project-row-label">Action</div>
+            <div class="project-row-text">Built a 4-page Power BI dashboard featuring KPI cards, custom DAX measures, dynamic slicers, and inventory tracking.</div>
+          </div>
+          <div class="project-row-item">
+            <div class="project-row-label">Result</div>
+            <div class="project-row-text">Analysed $15.26M revenue, 5K transactions, and flagged a critical 51.86% stockout rate requiring attention.</div>
+          </div>
+        </div>
+        <div class="project-tools">
+          <span class="tool-pill">Power BI</span>
+          <span class="tool-pill">Databricks SQL</span>
+          <span class="tool-pill">DAX</span>
+          <span class="tool-pill">Retail Analytics</span>
+        </div>
+        <a href="https://github.com/lawrencegivenchy/Walmart-Retail-Perfomance-Analysis" class="project-link" target="_blank">View Repository →</a>
       </div>
-    </div>
 
-    <div class="project-row-item">
-      <div class="project-row-label">Action</div>
-      <div class="project-row-text">
-        Built a 4-page Power BI dashboard featuring KPI cards,
-        DAX measures, navigation buttons, slicers, customer
-        analytics, loyalty analysis, and inventory monitoring.
-      </div>
-    </div>
-
-    <div class="project-row-item">
-      <div class="project-row-label">Result</div>
-      <div class="project-row-text">
-        Analysed $15.26M revenue, 5K transactions,
-        customer purchasing behaviour, promotion effectiveness,
-        and identified a 51.86% stockout rate requiring
-        operational attention.
-      </div>
-    </div>
-
-  </div>
-
-  <div class="project-tools">
-    <span class="tool-pill">Power BI</span>
-    <span class="tool-pill">Databricks SQL</span>
-    <span class="tool-pill">DAX</span>
-    <span class="tool-pill">Retail Analytics</span>
-    <span class="tool-pill">Dashboard Design</span>
-  </div>
-
-  <a href="https://github.com/lawrencegivenchy/Walmart-Retail-Perfomance-Analysis"
-     class="project-link"
-     target="_blank">
-     View Repository →
-  </a>
-
-</div>
-    </div>
-  </div>
-</section>
-
-   <!-- Project 2 -->
-      <div class="project-card">
+      <div class="project-card" data-tech="powerbi sql">
         <div class="project-num">02</div>
         <div class="project-tag">Databricks SQL · Power BI</div>
         <div class="project-title">Nova Retail Group — Sales Performance Analysis</div>
         <div class="project-row">
           <div class="project-row-item">
             <div class="project-row-label">Problem</div>
-            <div class="project-row-text">Retail group needed a data-driven view of sales, products, customers, and satisfaction across regions and channels</div>
+            <div class="project-row-text">Retail group needed a data-driven view of sales, products, and satisfaction metrics across channels.</div>
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Action</div>
-            <div class="project-row-text">Wrote 15 Databricks SQL views across 4 analysis tiers; built a 4-page Power BI dashboard with slicers and navigation</div>
+            <div class="project-row-text">Wrote 15 Databricks SQL views across 4 analysis tiers; mapped an executive 4-page Power BI breakdown.</div>
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Result</div>
-            <div class="project-row-text">R16.88M revenue analysed; 9.63% YoY growth identified; Electronics driving 74% of revenue; Online channel outperforming Store 2x</div>
+            <div class="project-row-text">R16.88M revenue analysed; 9.63% YoY growth mapped; Online outperforming brick-and-mortar storefronts 2x.</div>
           </div>
         </div>
         <div class="project-tools">
           <span class="tool-pill">Databricks SQL</span>
           <span class="tool-pill">Power BI</span>
-          <span class="tool-pill">DAX</span>
-          <span class="tool-pill">Window Functions</span>
           <span class="tool-pill">CTEs</span>
+          <span class="tool-pill">Window Functions</span>
         </div>
         <a href="https://github.com/lawrencegivenchy/Nova-Retail-Analysis" class="project-link" target="_blank">View Repository →</a>
       </div>
 
-  <!-- Project 3 -->
-      <div class="project-card">
+      <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">03</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI</div>
         <div class="project-title">E-Commerce Sales Funnel Analysis</div>
         <div class="project-row">
           <div class="project-row-item">
             <div class="project-row-label">Problem</div>
-            <div class="project-row-text">Understand where customers drop off from browse to purchase</div>
+            <div class="project-row-text">Identify leaking points in consumer acquisition pipeline where users drop off from browsing to purchase checkout.</div>
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Action</div>
-            <div class="project-row-text">Built 4 persistent SQL views covering funnel stages, source, time-to-conversion, revenue</div>
+            <div class="project-row-text">Built 4 persistent SQL views capturing conversion timelines, referral sources, and multi-stage funnel leaks.</div>
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Result</div>
-            <div class="project-row-text">Interactive Power BI dashboard with full funnel visibility</div>
+            <div class="project-row-text">Designed a comprehensive conversion funnel overview detailing clear conversion blockages via Power BI.</div>
           </div>
         </div>
         <div class="project-tools">
           <span class="tool-pill">Databricks SQL</span>
           <span class="tool-pill">Power BI</span>
-          <span class="tool-pill">CTEs</span>
           <span class="tool-pill">Persistent Views</span>
         </div>
         <a href="https://github.com/lawrencegivenchy/E-Commerce-Sales-Funnel" class="project-link" target="_blank">View Repository →</a>
       </div>
   
-      <!-- Project 4 -->
-      <div class="project-card">
+      <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">04</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI</div>
         <div class="project-title">E-Commerce Sales Performance Analysis</div>
         <div class="project-row">
           <div class="project-row-item">
             <div class="project-row-label">Problem</div>
-            <div class="project-row-text">Messy dataset with formatting issues, missing values, inconsistent dates</div>
+            <div class="project-row-text">Fix a corrupted, messy corporate database riddled with string errors, missing logs, and inconsistent dates.</div>
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Action</div>
-            <div class="project-row-text">Cleaned in Excel, wrote 7 SQL queries, built a 7-visual dashboard</div>
+            <div class="project-row-text">Executed extensive algorithmic cleaning script in Excel, developed 7 advanced SQL queries, and generated custom dashboards.</div>
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Result</div>
-            <div class="project-row-text">15.46% cancellation rate identified; Books top revenue category</div>
+            <div class="project-row-text">Identified underlying 15.46% cancellation rate trends and discovered Books section as core profit driver.</div>
           </div>
         </div>
         <div class="project-tools">
           <span class="tool-pill">Excel</span>
           <span class="tool-pill">Databricks SQL</span>
           <span class="tool-pill">Power BI</span>
-          <span class="tool-pill">ERD</span>
+          <span class="tool-pill">Data Cleaning</span>
         </div>
         <a href="https://github.com/lawrencegivenchy/Messy-ECommerce-Data-Cleaning-and-Analysis" class="project-link" target="_blank">View Repository →</a>
       </div>
+
+    </div>
+  </div>
+</section>
  
- 
-<!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
     <div class="section-label">Education & Certifications</div>
@@ -829,7 +821,6 @@
   </div>
 </section>
  
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-label">Get In Touch</div>
@@ -854,12 +845,11 @@
           GitHub Portfolio
         </a>
         <a href="https://wa.me/27722008937" class="contact-link" target="_blank">
-  <div class="contact-icon">WA</div>
-  WhatsApp Me
-</a>
+          <div class="contact-icon">WA</div>
+          WhatsApp Me
+        </a>
         <a href="Lawrence_Makhafola_CV_24-05-2026.pdf" download class="contact-link">
           <div class="contact-icon">cv</div>
-      
           Download CV
         </a>
       </div>
@@ -867,11 +857,60 @@
   </div>
 </section>
  
-<!-- FOOTER -->
 <footer>
   <span>© 2026 Lawrence T Makhafola</span>
   <span>Pretoria, South Africa</span>
 </footer>
+
+<script>
+  // 1. Dynamic Interactive Portfolio Filtering
+  function filterProjects(category) {
+    // Toggle active state on buttons
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Filter the project cards
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      const techTags = card.getAttribute('data-tech');
+      if (category === 'all' || techTags.includes(category)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  // 2. Animated Reciprocating Stats Numbers Counter
+  document.addEventListener("DOMContentLoaded", () => {
+    const statsNumbers = document.querySelectorAll('.stat-num');
+    
+    const animateCounters = () => {
+      statsNumbers.forEach(num => {
+        const target = +num.getAttribute('data-target');
+        const current = +num.innerText;
+        const increment = target / 40; // Control speed layout
+        
+        if (current < target) {
+          const nextValue = Math.ceil(current + increment);
+          if (nextValue >= target) {
+            // Append visual styling characters based on criteria
+            if (target === 32) num.innerText = "R32M+";
+            else if (target === 100) num.innerText = "100%";
+            else num.innerText = target;
+          } else {
+            num.innerText = nextValue;
+            setTimeout(animateCounters, 25);
+          }
+        }
+      });
+    };
+
+    // Trigger numbers animation instantly when page completely draws
+    animateCounters();
+  });
+</script>
  
 </body>
 </html>
