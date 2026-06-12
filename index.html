@@ -77,12 +77,18 @@
     margin: 0 auto;
     width: 100%;
   }
+  .hero-eyebrow-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
   .hero-eyebrow {
     font-size: 0.8rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -93,6 +99,16 @@
     width: 40px;
     height: 1px;
     background: var(--accent);
+  }
+  .pbi-badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    background: rgba(200,169,110,0.15);
+    color: var(--accent2);
+    border: 0.5px solid var(--accent);
+    font-weight: 500;
   }
   h1 {
     font-family: 'Playfair Display', serif;
@@ -309,7 +325,6 @@
   
   #projects { background: var(--bg2); }
   
-  /* --- Interactive Filter Layout Styles --- */
   .filter-container {
     display: flex;
     gap: 1rem;
@@ -339,25 +354,37 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+  
+  /* --- SCROLL-IN ANIMATION CLASSES FOR PROJECTS --- */
   .project-card {
     background: var(--card-bg);
     border: 0.5px solid var(--border);
     padding: 2rem;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
-    opacity: 1;
-    transform: scale(1);
-  }
-  .project-card.hidden {
-    display: none;
+    
+    /* Animation state setup */
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                border-color 0.3s ease;
   }
+  
+  /* Class triggered by Scroll Observer */
+  .project-card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .project-card.hidden {
+    display: none !important;
+  }
+  
   .project-card:hover {
     border-color: rgba(200,169,110,0.5);
-    transform: translateY(-4px);
+    transform: translateY(-4px) !important; /* Keep interactive lift on hover */
   }
   .project-num {
     font-family: 'Playfair Display', serif;
@@ -502,7 +529,7 @@
   
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; } /* Kept simple clean mobile profile style */
+    .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
     #home { padding: 6rem 1.5rem 4rem; }
     .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -518,6 +545,7 @@
 </head>
 <body>
  
+<!-- NAV -->
 <nav>
   <div class="nav-logo">LTM</div>
   <ul class="nav-links">
@@ -530,6 +558,7 @@
   </ul>
 </nav>
  
+<!-- HERO -->
 <section id="home">
   <div class="bg-decor"></div>
   <div class="hero-grid">
@@ -539,7 +568,10 @@
       </div>
     </div>
     <div>
-      <div class="hero-eyebrow fade-up delay-1">Junior Data Analyst · South Africa · Pretoria</div>
+      <div class="hero-eyebrow-container fade-up delay-1">
+        <div class="hero-eyebrow">Junior Data Analyst · Pretoria</div>
+        <div class="pbi-badge">Power BI Certified</div>
+      </div>
       <h1 class="fade-up delay-2">Lawrence T<br><span>Makhafola</span></h1>
       <p class="hero-desc fade-up delay-3">
         Transforming raw data into clear insights and interactive dashboards using SQL, Power BI, Python, and Excel. Focused on solving business problems through data analysis.
@@ -554,6 +586,7 @@
       </div>
     </div>
     
+    <!-- RECIPROCATING COUNT ANIMATION CONTAINER -->
     <div class="hero-stats fade-up delay-3">
       <div class="stat-card">
         <div class="stat-num" data-target="4">0</div>
@@ -575,6 +608,7 @@
   </div>
 </section>
  
+<!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
     <div class="section-label">About Me</div>
@@ -605,6 +639,7 @@
   </div>
 </section>
  
+<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
     <div class="section-label">Technical Skills</div>
@@ -647,6 +682,7 @@
   </div>
 </section>
  
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-label">Portfolio Projects</div>
@@ -661,6 +697,7 @@
 
     <div class="projects-grid">
 
+      <!-- Project 1 -->
       <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">01</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI · DAX</div>
@@ -688,6 +725,7 @@
         <a href="https://github.com/lawrencegivenchy/Walmart-Retail-Perfomance-Analysis" class="project-link" target="_blank">View Repository →</a>
       </div>
 
+      <!-- Project 2 -->
       <div class="project-card" data-tech="powerbi sql">
         <div class="project-num">02</div>
         <div class="project-tag">Databricks SQL · Power BI</div>
@@ -715,6 +753,7 @@
         <a href="https://github.com/lawrencegivenchy/Nova-Retail-Analysis" class="project-link" target="_blank">View Repository →</a>
       </div>
 
+      <!-- Project 3 -->
       <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">03</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI</div>
@@ -741,6 +780,7 @@
         <a href="https://github.com/lawrencegivenchy/E-Commerce-Sales-Funnel" class="project-link" target="_blank">View Repository →</a>
       </div>
   
+      <!-- Project 4 -->
       <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">04</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI</div>
@@ -772,6 +812,7 @@
   </div>
 </section>
  
+<!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
     <div class="section-label">Education & Certifications</div>
@@ -821,6 +862,7 @@
   </div>
 </section>
  
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-label">Get In Touch</div>
@@ -857,58 +899,83 @@
   </div>
 </section>
  
+<!-- FOOTER -->
 <footer>
   <span>© 2026 Lawrence T Makhafola</span>
   <span>Pretoria, South Africa</span>
 </footer>
 
+<!-- INTERACTIVE JAVASCRIPT COMPONENTS -->
 <script>
   // 1. Dynamic Interactive Portfolio Filtering
   function filterProjects(category) {
-    // Toggle active state on buttons
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 
-    // Filter the project cards
     const cards = document.querySelectorAll('.project-card');
     cards.forEach(card => {
       const techTags = card.getAttribute('data-tech');
       if (category === 'all' || techTags.includes(category)) {
         card.classList.remove('hidden');
+        // Instantly force opacity handling for filtered assets
+        setTimeout(() => card.classList.add('reveal'), 50);
       } else {
         card.classList.add('hidden');
+        card.classList.remove('reveal');
       }
     });
   }
 
-  // 2. Animated Reciprocating Stats Numbers Counter
-  document.addEventListener("DOMContentLoaded", () => {
+  // 2. Fixed Dynamic Metrics Counter Engine
+  window.addEventListener("load", () => {
     const statsNumbers = document.querySelectorAll('.stat-num');
     
-    const animateCounters = () => {
-      statsNumbers.forEach(num => {
-        const target = +num.getAttribute('data-target');
-        const current = +num.innerText;
-        const increment = target / 40; // Control speed layout
-        
-        if (current < target) {
-          const nextValue = Math.ceil(current + increment);
-          if (nextValue >= target) {
-            // Append visual styling characters based on criteria
-            if (target === 32) num.innerText = "R32M+";
-            else if (target === 100) num.innerText = "100%";
-            else num.innerText = target;
-          } else {
-            num.innerText = nextValue;
-            setTimeout(animateCounters, 25);
-          }
+    statsNumbers.forEach(num => {
+      const target = +num.getAttribute('data-target');
+      let current = 0;
+      const duration = 1500; // 1.5 seconds total execution runtime
+      const stepTime = 30;
+      const steps = duration / stepTime;
+      const increment = target / steps;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          clearInterval(timer);
+          if (target === 32) num.innerText = "R32M+";
+          else if (target === 100) num.innerText = "100%";
+          else if (target === 15) num.innerText = "15";
+          else num.innerText = target;
+        } else {
+          num.innerText = Math.floor(current);
         }
-      });
+      }, stepTime);
+    });
+  });
+
+  // 3. Scroll Intersection Observer (Moves boxes into place smoothly)
+  document.addEventListener("DOMContentLoaded", () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    const observerOptions = {
+      root: null, // viewport view tracking
+      threshold: 0.15, // card must be 15% visible to animate
+      rootMargin: "0px 0px -50px 0px" // triggers slightly before entering full view
     };
 
-    // Trigger numbers animation instantly when page completely draws
-    animateCounters();
+    const projectObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+          observer.unobserve(entry.target); // Stops track optimization after loading once
+        }
+      });
+    }, observerOptions);
+
+    projectCards.forEach(card => {
+      projectObserver.observe(card);
+    });
   });
 </script>
  
