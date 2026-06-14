@@ -6,8 +6,8 @@
 <title>Lawrence T Makhafola | Junior Data Analyst</title>
 <meta property="og:title" content="Lawrence T Makhafola | Junior Data Analyst" />
 <meta property="og:description" content="Junior Data Analyst based in Pretoria, South Africa. Specialising in SQL, Power BI, and Excel. View my portfolio and get in touch." />
-<meta property="og:url" content="https://lawrence-makhafola.vercel.app" />
-<meta property="og:image" content="https://lawrence-makhafola.vercel.app/MyDataPic.jpeg" />
+<meta property="og:url" content="https://lawrenceteemakhafola.vercel.app" />
+<meta property="og:image" content="https://lawrenceteemakhafola.vercel.app/MyDataPic.jpeg" />
 <meta property="og:type" content="website" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -261,6 +261,8 @@
     background: var(--accent);
     margin-bottom: 3rem;
   }
+
+  /* ABOUT SECTION */
   #about { background: var(--bg2); }
   .about-grid {
     display: grid;
@@ -275,8 +277,55 @@
     line-height: 1.9;
   }
   .about-text p strong { color: var(--text); font-weight: 500; }
-  #skills { background: var(--bg); }
-  
+
+  /* METHODOLOGY SECTION */
+  #methodology { background: var(--bg); }
+  .methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .methodology-card {
+    background: var(--card-bg);
+    border: 0.5px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+  .methodology-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(200,169,110,0.1);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+  .methodology-step {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .methodology-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .methodology-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* SKILLS SECTION */
+  #skills { background: var(--bg2); }
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -323,8 +372,8 @@
     border: 0.5px solid rgba(200,169,110,0.2);
   }
   
-  #projects { background: var(--bg2); }
-  
+  /* PROJECTS SECTION */
+  #projects { background: var(--bg); }
   .filter-container {
     display: flex;
     gap: 1rem;
@@ -355,7 +404,6 @@
     gap: 1.5rem;
   }
   
-  /* --- SCROLL-IN ANIMATION CLASSES FOR PROJECTS --- */
   .project-card {
     background: var(--card-bg);
     border: 0.5px solid var(--border);
@@ -363,8 +411,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    
-    /* Animation state setup */
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.6s cubic-bezier(0.215, 0.610, 0.355, 1), 
@@ -372,7 +418,6 @@
                 border-color 0.3s ease;
   }
   
-  /* Class triggered by Scroll Observer */
   .project-card.reveal {
     opacity: 1;
     transform: translateY(0);
@@ -384,7 +429,7 @@
   
   .project-card:hover {
     border-color: rgba(200,169,110,0.5);
-    transform: translateY(-4px) !important; /* Keep interactive lift on hover */
+    transform: translateY(-4px) !important;
   }
   .project-num {
     font-family: 'Playfair Display', serif;
@@ -452,8 +497,94 @@
     transition: gap 0.2s;
   }
   .project-link:hover { gap: 0.7rem; }
-  
-  #education { background: var(--bg); }
+
+  /* CAPABILITIES SECTION */
+  #capabilities { background: var(--bg2); }
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .capability-card {
+    background: var(--card-bg);
+    border: 0.5px solid var(--border);
+    padding: 2rem;
+  }
+  .capability-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(200,169,110,0.1);
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .capability-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .capability-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .capability-item {
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .capability-item::before {
+    content: '•';
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  /* SEEKING SECTION */
+  #seeking { background: var(--bg); }
+  .seeking-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .seeking-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .seeking-quote {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    font-style: italic;
+    line-height: 1.8;
+  }
+  .role-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .role-badge {
+    padding: 0.6rem 1.2rem;
+    background: var(--card-bg);
+    border: 0.5px solid var(--border);
+    color: var(--text);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* EDUCATION SECTION */
+  #education { background: var(--bg2); }
   .edu-list { display: flex; flex-direction: column; gap: 1px; }
   .edu-item {
     display: grid;
@@ -475,39 +606,61 @@
     text-transform: uppercase;
     white-space: nowrap;
   }
-  #contact { background: var(--bg2); }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
-    align-items: start;
+
+  /* CONTACT SECTION */
+  #contact { background: var(--bg); }
+  .contact-cta {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    padding: 3.5rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
   }
-  .contact-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1rem; }
-  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    background: var(--card-bg);
-    border: 0.5px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    transition: border-color 0.3s;
+  .contact-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
   }
-  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
-  .contact-icon {
-    width: 36px; height: 36px;
-    background: rgba(200,169,110,0.1);
-    border: 0.5px solid var(--border);
+  .contact-desc {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .contact-buttons {
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
-    color: var(--accent);
-    flex-shrink: 0;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
+  .contact-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .contact-btn-primary {
+    background: white;
+    color: #2563eb;
+  }
+  .contact-btn-primary:hover { transform: translateY(-2px); }
+  .contact-btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  .contact-btn-secondary:hover { transform: translateY(-2px); }
+
   footer {
     padding: 2rem 4rem;
     border-top: 0.5px solid var(--border);
@@ -537,6 +690,8 @@
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .skills-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
+    .methodology-grid { grid-template-columns: 1fr; }
+    .capabilities-grid { grid-template-columns: 1fr; }
     .edu-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .edu-badge { display: none; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -551,9 +706,9 @@
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#methodology">Methodology</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -572,9 +727,9 @@
         <div class="hero-eyebrow">Junior Data Analyst · Pretoria</div>
         <div class="pbi-badge">Power BI Certified</div>
       </div>
-      <h1 class="fade-up delay-2">Lawrence T<br><span>Makhafola</span></h1>
+      <h1 class="fade-up delay-2">Turning <span>Business<br>Data</span><br>Into Decisions</h1>
       <p class="hero-desc fade-up delay-3">
-        Transforming raw data into clear insights and interactive dashboards using SQL, Power BI, Python, and Excel. Focused on solving business problems through data analysis.
+        Junior Data Analyst skilled in SQL, Power BI, Excel, and Python. Building dashboards, uncovering trends, and delivering insights that support business growth.
       </p>
       <div class="btn-group fade-up delay-4">
         <a href="#projects" class="btn-primary">View My Work</a>
@@ -586,7 +741,6 @@
       </div>
     </div>
     
-    <!-- RECIPROCATING COUNT ANIMATION CONTAINER -->
     <div class="hero-stats fade-up delay-3">
       <div class="stat-card">
         <div class="stat-num" data-target="4">0</div>
@@ -624,9 +778,9 @@
       <div>
         <div class="skill-group" style="margin-bottom: 1.5rem;">
           <div class="skill-group-title">Currently Building</div>
-          <div class="skill-item"><span class="skill-dot"></span> Walmart Retail Performance Analysis <span class="skill-badge">Complete</span></div>
-          <div class="skill-item"><span class="skill-dot"></span> E-Commerce Sales Funnel Analysis <span class="skill-badge">Complete</span></div>
-          <div class="skill-item"><span class="skill-dot"></span> Python Sales Analytics Project <span class="skill-badge">In Progress</span></div>
+          <div class="skill-item"><span class="skill-dot"></span> Walmart Retail Performance <span class="skill-badge">Complete</span></div>
+          <div class="skill-item"><span class="skill-dot"></span> E-Commerce Sales Funnel <span class="skill-badge">Complete</span></div>
+          <div class="skill-item"><span class="skill-dot"></span> Imbewu Retail Capstone <span class="skill-badge">In Progress</span></div>
         </div>
         <div class="skill-group">
           <div class="skill-group-title">Open To</div>
@@ -638,7 +792,36 @@
     </div>
   </div>
 </section>
- 
+
+<!-- METHODOLOGY -->
+<section id="methodology">
+  <div class="section-inner">
+    <h2>How I Solve Business Problems</h2>
+    <p style="color: var(--muted); margin-bottom: 3rem; font-size: 0.95rem;">A structured approach to turning raw data into strategic business value.</p>
+    
+    <div class="methodology-grid">
+      <div class="methodology-card">
+        <div class="methodology-icon">🔍</div>
+        <div class="methodology-step">Step 1</div>
+        <div class="methodology-title">Data Collection & Cleaning</div>
+        <div class="methodology-desc">Transform messy datasets into reliable, structured information ready for analysis.</div>
+      </div>
+      <div class="methodology-card">
+        <div class="methodology-icon">📊</div>
+        <div class="methodology-step">Step 2</div>
+        <div class="methodology-title">Analysis & Investigation</div>
+        <div class="methodology-desc">Use SQL, Excel and Python to uncover hidden trends, patterns, and revenue opportunities.</div>
+      </div>
+      <div class="methodology-card">
+        <div class="methodology-icon">📈</div>
+        <div class="methodology-step">Step 3</div>
+        <div class="methodology-title">Reporting & Decisions</div>
+        <div class="methodology-desc">Build interactive dashboards and reports that support swift, data-driven executive action.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
@@ -646,37 +829,36 @@
     <div class="divider"></div>
     <div class="skills-grid">
       <div class="skill-group">
-        <div class="skill-group-title">Data & Querying</div>
-        <div class="skill-item"><span class="skill-dot"></span> Databricks SQL <span class="skill-badge">Active</span></div>
+        <div class="skill-group-title">Data Analysis</div>
+        <div class="skill-item"><span class="skill-dot"></span> SQL <span class="skill-badge">Core</span></div>
+        <div class="skill-item"><span class="skill-dot"></span> Databricks SQL</div>
         <div class="skill-item"><span class="skill-dot"></span> CTEs & Subqueries</div>
         <div class="skill-item"><span class="skill-dot"></span> Aggregations & Window Functions</div>
-        <div class="skill-item"><span class="skill-dot"></span> Data Type Casting</div>
-        <div class="skill-item"><span class="skill-dot"></span> Data Validation & Null Checks</div>
-        <div class="skill-item"><span class="skill-dot"></span> Python <span class="skill-badge">Beginner</span></div>
+        <div class="skill-item"><span class="skill-dot"></span> Data Validation & Joins</div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Excel & Data Preparation</div>
+        <div class="skill-group-title">Business Intelligence</div>
+        <div class="skill-item"><span class="skill-dot"></span> Power BI <span class="skill-badge">Active</span></div>
+        <div class="skill-item"><span class="skill-dot"></span> DAX Measures & Calculated Columns</div>
+        <div class="skill-item"><span class="skill-dot"></span> Dashboard Design</div>
+        <div class="skill-item"><span class="skill-dot"></span> KPI Development</div>
+        <div class="skill-item"><span class="skill-dot"></span> Interactive Slicers</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Spreadsheet Analytics</div>
+        <div class="skill-item"><span class="skill-dot"></span> Excel <span class="skill-badge">Advanced</span></div>
         <div class="skill-item"><span class="skill-dot"></span> XLOOKUP & INDEX/MATCH</div>
         <div class="skill-item"><span class="skill-dot"></span> Pivot Tables & Charts</div>
         <div class="skill-item"><span class="skill-dot"></span> Power Query</div>
-        <div class="skill-item"><span class="skill-dot"></span> Data Cleaning & Transformation</div>
-        <div class="skill-item"><span class="skill-dot"></span> Interactive Dashboards</div>
+        <div class="skill-item"><span class="skill-dot"></span> Data Cleaning & Formulas</div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Visualisation & Reporting</div>
-        <div class="skill-item"><span class="skill-dot"></span> Power BI <span class="skill-badge">Active</span></div>
-        <div class="skill-item"><span class="skill-dot"></span> DAX Measures & Calculated Columns <span class="skill-badge">Active</span></div>
-        <div class="skill-item"><span class="skill-dot"></span> KPI Cards, Slicers & Navigation <span class="skill-badge">Active</span></div>
-        <div class="skill-item"><span class="skill-dot"></span> Executive Dashboard Design <span class="skill-badge">Active</span></div>
-        <div class="skill-item"><span class="skill-dot"></span> GitHub & README Documentation <span class="skill-badge">Active</span></div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Analytics & Strategic Context</div>
-        <div class="skill-item"><span class="skill-dot"></span> KPI Development & Trend Analysis</div>
-        <div class="skill-item"><span class="skill-dot"></span> Customer Segmentation</div>
-        <div class="skill-item"><span class="skill-dot"></span> Revenue & Profitability Analysis</div>
-        <div class="skill-item"><span class="skill-dot"></span> Inventory & Stockout Analysis</div>
-        <div class="skill-item"><span class="skill-dot"></span> AI-Assisted Analytics (Claude, Gemini) <span class="skill-badge">Active</span></div>
+        <div class="skill-group-title">Programming & Tools</div>
+        <div class="skill-item"><span class="skill-dot"></span> Python <span class="skill-badge">Beginner</span></div>
+        <div class="skill-item"><span class="skill-dot"></span> Pandas & Matplotlib</div>
+        <div class="skill-item"><span class="skill-dot"></span> GitHub & Version Control</div>
+        <div class="skill-item"><span class="skill-dot"></span> Data Modelling</div>
+        <div class="skill-item"><span class="skill-dot"></span> README Documentation</div>
       </div>
     </div>
   </div>
@@ -697,7 +879,7 @@
 
     <div class="projects-grid">
 
-      <!-- Project 1 -->
+      <!-- Project 1: Walmart -->
       <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">01</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI · DAX</div>
@@ -722,10 +904,10 @@
           <span class="tool-pill">DAX</span>
           <span class="tool-pill">Retail Analytics</span>
         </div>
-        <a href="https://github.com/lawrencegivenchy/Walmart-Retail-Perfomance-Analysis" class="project-link" target="_blank">View Repository →</a>
+        <a href="https://github.com/lawrencegivenchy/Walmart-Retail-Perfomance-Analysis" class="project-link" target="_blank">View Case Study →</a>
       </div>
 
-      <!-- Project 2 -->
+      <!-- Project 2: Nova -->
       <div class="project-card" data-tech="powerbi sql">
         <div class="project-num">02</div>
         <div class="project-tag">Databricks SQL · Power BI</div>
@@ -741,7 +923,7 @@
           </div>
           <div class="project-row-item">
             <div class="project-row-label">Result</div>
-            <div class="project-row-text">R16.88M revenue analysed; 9.63% YoY growth mapped; Online outperforming brick-and-mortar storefronts 2x.</div>
+            <div class="project-row-text">R16.88M revenue analysed; 9.63% YoY growth mapped; Online outperforming brick-and-mortar 2x.</div>
           </div>
         </div>
         <div class="project-tools">
@@ -753,7 +935,7 @@
         <a href="https://github.com/lawrencegivenchy/Nova-Retail-Analysis" class="project-link" target="_blank">View Repository →</a>
       </div>
 
-      <!-- Project 3 -->
+      <!-- Project 3: E-Commerce Funnel -->
       <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">03</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI</div>
@@ -780,7 +962,7 @@
         <a href="https://github.com/lawrencegivenchy/E-Commerce-Sales-Funnel" class="project-link" target="_blank">View Repository →</a>
       </div>
   
-      <!-- Project 4 -->
+      <!-- Project 4: E-Commerce Data Cleaning -->
       <div class="project-card" data-tech="powerbi sql excel">
         <div class="project-num">04</div>
         <div class="project-tag">Excel · Databricks SQL · Power BI</div>
@@ -811,7 +993,93 @@
     </div>
   </div>
 </section>
- 
+
+<!-- CAPABILITIES -->
+<section id="capabilities">
+  <div class="section-inner">
+    <h2>What My Projects Demonstrate</h2>
+    <p style="color: var(--muted); margin-bottom: 3rem; font-size: 0.95rem;">Evidence of capability beyond just a list of learned tools.</p>
+    
+    <div class="capabilities-grid">
+      <div class="capability-card">
+        <div class="capability-icon">📊</div>
+        <div class="capability-title">Business Analytics</div>
+        <div class="capability-items">
+          <div class="capability-item">Translating ambiguous business questions into measurable KPIs</div>
+          <div class="capability-item">Revenue & profitability analysis</div>
+          <div class="capability-item">Customer segmentation & trends</div>
+        </div>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">🧹</div>
+        <div class="capability-title">Data Cleaning</div>
+        <div class="capability-items">
+          <div class="capability-item">Structuring messy datasets into reliable formats</div>
+          <div class="capability-item">Handling nulls, duplicates, and anomalies</div>
+          <div class="capability-item">Data validation & consistency checks</div>
+        </div>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">📈</div>
+        <div class="capability-title">Dashboard Development</div>
+        <div class="capability-items">
+          <div class="capability-item">Designing intuitive executive dashboards</div>
+          <div class="capability-item">Interactive slicers & KPI cards</div>
+          <div class="capability-item">Multi-page reporting with clear narratives</div>
+        </div>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">🔍</div>
+        <div class="capability-title">SQL Querying</div>
+        <div class="capability-items">
+          <div class="capability-item">Writing optimized queries with CTEs & window functions</div>
+          <div class="capability-item">Building persistent views for reusable analytics</div>
+          <div class="capability-item">Extracting precise insights from large datasets</div>
+        </div>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">💬</div>
+        <div class="capability-title">Insight Communication</div>
+        <div class="capability-items">
+          <div class="capability-item">Presenting analytical findings to non-technical stakeholders</div>
+          <div class="capability-item">Clear README documentation & case studies</div>
+          <div class="capability-item">Turning data into actionable recommendations</div>
+        </div>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">🎯</div>
+        <div class="capability-title">Problem Solving</div>
+        <div class="capability-items">
+          <div class="capability-item">Approaching data challenges methodically</div>
+          <div class="capability-item">Debugging & validating results</div>
+          <div class="capability-item">Delivering solutions under constraints</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEEKING -->
+<section id="seeking">
+  <div class="section-inner">
+    <div class="seeking-content">
+      <div style="width: 50px; height: 50px; background: rgba(200,169,110,0.1); border: 0.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 2rem; color: var(--accent);">🎯</div>
+      
+      <h2>Currently Seeking</h2>
+      <p class="seeking-quote">"I am open to analyst opportunities where I can apply SQL, Excel, Power BI, and Python to support data-driven decision making."</p>
+      
+      <div class="role-badges">
+        <div class="role-badge">Junior Data Analyst</div>
+        <div class="role-badge">Business Analyst</div>
+        <div class="role-badge">Reporting Analyst</div>
+        <div class="role-badge">Operations Analyst</div>
+        <div class="role-badge">Supply Chain Analyst</div>
+        <div class="role-badge">Data Reporting Specialist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-inner">
@@ -861,39 +1129,17 @@
     </div>
   </div>
 </section>
- 
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <div class="section-label">Get In Touch</div>
-    <div class="divider"></div>
-    <div class="contact-grid">
-      <div class="contact-text">
-        <h2>Let's connect</h2>
-        <p>I am actively seeking junior data analyst roles in South Africa and open to remote opportunities globally. If you have a role, project, or just want to connect, I'd love to hear from you.</p>
-        <p>Based in Pretoria, South Africa · Open to relocation and remote work.</p>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:lawrencegivenchy@yahoo.com" class="contact-link">
-          <div class="contact-icon">@</div>
-          Email Me
-        </a>
-        <a href="https://www.linkedin.com/in/lawrence-makhafola-8b0075249" class="contact-link" target="_blank">
-          <div class="contact-icon">in</div>
-          LinkedIn Profile
-        </a>
-        <a href="https://github.com/lawrencegivenchy" class="contact-link" target="_blank">
-          <div class="contact-icon">gh</div>
-          GitHub Portfolio
-        </a>
-        <a href="https://wa.me/27722008937" class="contact-link" target="_blank">
-          <div class="contact-icon">WA</div>
-          WhatsApp Me
-        </a>
-        <a href="Lawrence_Makhafola_CV_24-05-2026.pdf" download class="contact-link">
-          <div class="contact-icon">cv</div>
-          Download CV
-        </a>
+    <div class="contact-cta">
+      <h3 class="contact-headline">Let's Talk Data</h3>
+      <p class="contact-desc">Seeking Junior Data Analyst roles in Supply Chain, Retail, or Operations. Whether you have an open role, internship, or project, I'd love to connect.</p>
+      <div class="contact-buttons">
+        <a href="mailto:lawrencegivenchy@yahoo.com" class="contact-btn contact-btn-primary">EMAIL ME</a>
+        <a href="https://www.linkedin.com/in/lawrence-makhafola-8b0075249" class="contact-btn contact-btn-secondary" target="_blank">LINKEDIN</a>
+        <a href="https://wa.me/27722008937" class="contact-btn contact-btn-secondary" target="_blank">WHATSAPP</a>
       </div>
     </div>
   </div>
@@ -901,13 +1147,12 @@
  
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Lawrence T Makhafola</span>
-  <span>Pretoria, South Africa</span>
+  <span>© 2026 LAWRENCE MAKHAFOLA · PORTFOLIO V2</span>
+  <span>Built for conversions | Junior Data Analyst Portfolio</span>
 </footer>
 
-<!-- INTERACTIVE JAVASCRIPT COMPONENTS -->
+<!-- JAVASCRIPT -->
 <script>
-  // 1. Dynamic Interactive Portfolio Filtering
   function filterProjects(category) {
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
@@ -918,7 +1163,6 @@
       const techTags = card.getAttribute('data-tech');
       if (category === 'all' || techTags.includes(category)) {
         card.classList.remove('hidden');
-        // Instantly force opacity handling for filtered assets
         setTimeout(() => card.classList.add('reveal'), 50);
       } else {
         card.classList.add('hidden');
@@ -927,14 +1171,13 @@
     });
   }
 
-  // 2. Fixed Dynamic Metrics Counter Engine
   window.addEventListener("load", () => {
     const statsNumbers = document.querySelectorAll('.stat-num');
     
     statsNumbers.forEach(num => {
       const target = +num.getAttribute('data-target');
       let current = 0;
-      const duration = 1500; // 1.5 seconds total execution runtime
+      const duration = 1500;
       const stepTime = 30;
       const steps = duration / stepTime;
       const increment = target / steps;
@@ -954,21 +1197,20 @@
     });
   });
 
-  // 3. Scroll Intersection Observer (Moves boxes into place smoothly)
   document.addEventListener("DOMContentLoaded", () => {
     const projectCards = document.querySelectorAll('.project-card');
     
     const observerOptions = {
-      root: null, // viewport view tracking
-      threshold: 0.15, // card must be 15% visible to animate
-      rootMargin: "0px 0px -50px 0px" // triggers slightly before entering full view
+      root: null,
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
     };
 
     const projectObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal');
-          observer.unobserve(entry.target); // Stops track optimization after loading once
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
