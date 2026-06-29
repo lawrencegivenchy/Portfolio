@@ -746,7 +746,7 @@
     
     <div class="hero-stats fade-up delay-3">
       <div class="stat-card">
-        <div class="stat-num" data-target="4">0</div>
+        <div class="stat-num" data-target="5">0</div>
         <div class="stat-label">Portfolio Projects</div>
       </div>
       <div class="stat-card">
@@ -754,12 +754,12 @@
         <div class="stat-label">Million Revenue Analysed (ZAR)</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="15">0</div>
-        <div class="stat-label">SQL Views Built</div>
+        <div class="stat-num" data-target="20">0</div>
+        <div class="stat-label">SQL Queries Built</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="100">0</div>
-        <div class="stat-label">% Interactive Dashboards</div>
+        <div class="stat-num" data-target="5">0</div>
+        <div class="stat-label">Interactive Dashboards</div>
       </div>
     </div>
   </div>
@@ -1219,8 +1219,9 @@
         if (current >= target) {
           clearInterval(timer);
           if (target === 32) num.innerText = "R32M+";
-          else if (target === 100) num.innerText = "100%";
-          else if (target === 15) num.innerText = "15";
+          else if (target === 5 && num.parentElement.querySelector('.stat-label').innerText.includes('Dashboards')) num.innerText = "5";
+          else if (target === 5 && num.parentElement.querySelector('.stat-label').innerText.includes('Projects')) num.innerText = "5";
+          else if (target === 20) num.innerText = "20";
           else num.innerText = target;
         } else {
           num.innerText = Math.floor(current);
